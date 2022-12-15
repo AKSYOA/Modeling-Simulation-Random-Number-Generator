@@ -41,9 +41,9 @@
             this.numberOfIterationsTextBox = new System.Windows.Forms.TextBox();
             this.generateButton = new System.Windows.Forms.Button();
             this.randomNumbersTable = new System.Windows.Forms.DataGridView();
+            this.randomNumbersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cycleLengthLabel = new System.Windows.Forms.Label();
             this.cycleLengthTextBox = new System.Windows.Forms.TextBox();
-            this.randomNumbersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.randomNumbersTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,6 +166,12 @@
             this.randomNumbersTable.Size = new System.Drawing.Size(250, 337);
             this.randomNumbersTable.TabIndex = 12;
             // 
+            // randomNumbersColumn
+            // 
+            this.randomNumbersColumn.HeaderText = "Random Numbers";
+            this.randomNumbersColumn.Name = "randomNumbersColumn";
+            this.randomNumbersColumn.Width = 207;
+            // 
             // cycleLengthLabel
             // 
             this.cycleLengthLabel.AutoSize = true;
@@ -183,17 +189,11 @@
             this.cycleLengthTextBox.Size = new System.Drawing.Size(250, 32);
             this.cycleLengthTextBox.TabIndex = 14;
             // 
-            // randomNumbersColumn
-            // 
-            this.randomNumbersColumn.HeaderText = "Random Numbers";
-            this.randomNumbersColumn.Name = "randomNumbersColumn";
-            this.randomNumbersColumn.Width = 207;
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 512);
+            this.ClientSize = new System.Drawing.Size(992, 523);
             this.Controls.Add(this.cycleLengthTextBox);
             this.Controls.Add(this.cycleLengthLabel);
             this.Controls.Add(this.randomNumbersTable);
@@ -212,7 +212,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 15F);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "main";
-            this.Text = "Form1";
+            this.Text = "Random Number Generator";
             ((System.ComponentModel.ISupportInitialize)(this.randomNumbersTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
