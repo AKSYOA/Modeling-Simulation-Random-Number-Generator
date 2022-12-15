@@ -40,10 +40,11 @@
             this.modulusTextBox = new System.Windows.Forms.TextBox();
             this.numberOfIterationsTextBox = new System.Windows.Forms.TextBox();
             this.generateButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.randomNumbersTable = new System.Windows.Forms.DataGridView();
             this.cycleLengthLabel = new System.Windows.Forms.Label();
             this.cycleLengthTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.randomNumbersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.randomNumbersTable)).BeginInit();
             this.SuspendLayout();
             // 
             // seedLabel
@@ -155,13 +156,15 @@
             this.generateButton.Text = "Generate Random Numbers";
             this.generateButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // randomNumbersTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(648, 68);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(249, 337);
-            this.dataGridView1.TabIndex = 12;
+            this.randomNumbersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.randomNumbersTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.randomNumbersColumn});
+            this.randomNumbersTable.Location = new System.Drawing.Point(648, 68);
+            this.randomNumbersTable.Name = "randomNumbersTable";
+            this.randomNumbersTable.Size = new System.Drawing.Size(250, 337);
+            this.randomNumbersTable.TabIndex = 12;
             // 
             // cycleLengthLabel
             // 
@@ -177,8 +180,14 @@
             this.cycleLengthTextBox.Location = new System.Drawing.Point(648, 434);
             this.cycleLengthTextBox.Name = "cycleLengthTextBox";
             this.cycleLengthTextBox.ReadOnly = true;
-            this.cycleLengthTextBox.Size = new System.Drawing.Size(249, 32);
+            this.cycleLengthTextBox.Size = new System.Drawing.Size(250, 32);
             this.cycleLengthTextBox.TabIndex = 14;
+            // 
+            // randomNumbersColumn
+            // 
+            this.randomNumbersColumn.HeaderText = "Random Numbers";
+            this.randomNumbersColumn.Name = "randomNumbersColumn";
+            this.randomNumbersColumn.Width = 207;
             // 
             // main
             // 
@@ -187,7 +196,7 @@
             this.ClientSize = new System.Drawing.Size(1021, 512);
             this.Controls.Add(this.cycleLengthTextBox);
             this.Controls.Add(this.cycleLengthLabel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.randomNumbersTable);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.numberOfIterationsTextBox);
             this.Controls.Add(this.modulusTextBox);
@@ -204,7 +213,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "main";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.randomNumbersTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,9 +233,10 @@
         private System.Windows.Forms.TextBox modulusTextBox;
         private System.Windows.Forms.TextBox numberOfIterationsTextBox;
         private System.Windows.Forms.Button generateButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView randomNumbersTable;
         private System.Windows.Forms.Label cycleLengthLabel;
         private System.Windows.Forms.TextBox cycleLengthTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn randomNumbersColumn;
     }
 }
 
