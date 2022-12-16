@@ -155,6 +155,7 @@
             this.generateButton.TabIndex = 11;
             this.generateButton.Text = "Generate Random Numbers";
             this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
             // randomNumbersTable
             // 
@@ -165,6 +166,7 @@
             this.randomNumbersTable.Name = "randomNumbersTable";
             this.randomNumbersTable.Size = new System.Drawing.Size(250, 337);
             this.randomNumbersTable.TabIndex = 12;
+            this.randomNumbersTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.randomNumbersTable_CellContentClick);
             // 
             // randomNumbersColumn
             // 
