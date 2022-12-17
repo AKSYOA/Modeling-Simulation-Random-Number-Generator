@@ -22,11 +22,8 @@ namespace RandomNumberGenerator
         }
 
 
-        
-
         private void generateButton_Click(object sender, EventArgs e)
         {
-
             randomNumbersTable.Rows.Clear();
             double seed = double.Parse(seedTextBox.Text);
             double multiplier = double.Parse(multiplierTextBox.Text);
@@ -35,13 +32,13 @@ namespace RandomNumberGenerator
             double iteration = double.Parse(numberOfIterationsTextBox.Text);
 
             List<double> randomNumber = fun.LCG_Generator(multiplier, increment, modulus, seed, iteration);
+            double LongestPeriod = fun.calculateActualPeriodLenth(multiplier, increment, modulus, seed);
 
-            for(int i = 0; i < randomNumber.Count; i++)
+            for (int i = 0; i < randomNumber.Count; i++)
             {
                 randomNumbersTable.Rows.Add(randomNumber[i]);
             }
-           
-
+            cycleLengthTextBox.Text = LongestPeriod.ToString();
         }
 
         private void randomNumbersTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

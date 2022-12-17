@@ -13,6 +13,7 @@ namespace RandomNumberGenerator
         {
             List<double> lcg = new List<double>();
             double seed_i = 0;
+
             for (int i = 1; i < iteration; i++) 
             {
                 if(i == 1)
@@ -31,13 +32,7 @@ namespace RandomNumberGenerator
         }
 
 
-        public int calculateActualPeriodLenth(List<double> randomNumber)
-        { 
-            return 1;
-        }
 
-
-        /*
         public double calculateActualPeriodLenth(double multiplier, double increment, double modulus, double x0)
         {
             double LongestPeriod = -1;
@@ -45,7 +40,8 @@ namespace RandomNumberGenerator
 
             if (IsPowerOfTwo(modulus) && (increment != 0))
             {
-
+                if(IsRelativelyPrime(increment, modulus))
+                    LongestPeriod = modulus;
             }
             if (IsPowerOfTwo(modulus) && (increment == 0))
             {
@@ -60,7 +56,7 @@ namespace RandomNumberGenerator
 
             return LongestPeriod;
         }
-        */
+
 
 
         public bool IsPrime(double modulus)
@@ -111,6 +107,43 @@ namespace RandomNumberGenerator
             return false;
         }
 
+
+        public bool IsRelativelyPrime(double increment, double modulus)
+        {
+            double num = Math.Min(modulus, increment);
+            for (int i = 2; i <= num; i++)
+            {
+                if (IsDivisible(increment, i) && IsDivisible(modulus, i))
+                    return false;
+            }
+            return true;
+        }
+
+
+        public List<double> getPrimeNumbers(double number)
+        {
+            List<double> primeNumbers = new List<double>();
+            bool isPrime = true;
+
+            for (int i = 2; i <= number; i++)
+            {
+                for (int j = 2; j <= number; j++)
+                {
+                    if (i != j && i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    primeNumbers.Add(i);
+                }
+                isPrime = true;
+            }
+
+            return primeNumbers;
+        }
 
     }
 }
