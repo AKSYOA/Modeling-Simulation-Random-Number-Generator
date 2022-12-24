@@ -9,6 +9,14 @@ namespace RandomNumberGenerator
     class MainFuctions
     {
 
+        public bool validationOfInput(double multiplier, double increment, double modulus, double x0)
+        {
+            if ((modulus > 0) && (modulus > multiplier) && (modulus > increment) && (x0 < modulus))
+                return true;
+
+            return false;
+        }
+
 
         public List<double> LCG_Generator(double multiplier, double increment, double modulus, double x0, double iteration)
         {
@@ -31,15 +39,6 @@ namespace RandomNumberGenerator
                 
             }
             return lcg;
-        }
-
-
-        public bool validationOfInput(double multiplier, double increment, double modulus, double x0)
-        {
-            if ((modulus > 0) && (modulus > multiplier) && (modulus > increment) && (x0 < modulus))
-                return true;
-
-            return false;
         }
 
 
@@ -73,7 +72,7 @@ namespace RandomNumberGenerator
                     check3 = false;
                 }
             }
-            if(check1 || check2 || check3)
+            if(check1 && check2 && check3)
                 LongestPeriod = calculatePeriodLenth(multiplier, increment, modulus, x0);
 
             return LongestPeriod;
@@ -99,7 +98,6 @@ namespace RandomNumberGenerator
         }
 
 
-
         public bool IsPrime(double modulus)
         {
             int a = 0;
@@ -117,7 +115,6 @@ namespace RandomNumberGenerator
         }
 
 
-
         public bool IsDivisible(double a, double b)
         {
             double cDouble = a / b;
@@ -126,7 +123,6 @@ namespace RandomNumberGenerator
                 return true;
             return false;
         }
-
 
 
         public bool IsPowerOfTwo(double num)
@@ -143,14 +139,12 @@ namespace RandomNumberGenerator
         }
 
 
-
         public bool seedIsOdd(double seed)
         {
             if (seed % 2 != 0)
                 return true;
             return false;
         }
-
 
 
         public bool IsRelativelyPrime(double increment, double modulus)
@@ -163,7 +157,6 @@ namespace RandomNumberGenerator
             }
             return true;
         }
-
 
 
         public List<double> getPrimeNumbers(double number)
