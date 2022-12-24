@@ -9,6 +9,7 @@ namespace RandomNumberGenerator
     class MainFuctions
     {
 
+
         public List<double> LCG_Generator(double multiplier, double increment, double modulus, double x0, double iteration)
         {
             List<double> lcg = new List<double>();
@@ -26,35 +27,75 @@ namespace RandomNumberGenerator
                     lcg.Add(((multiplier * seed_i) + increment) % modulus);
                     seed_i = ((multiplier * seed_i) + increment) % modulus;  
                 }
+
                 
             }
             return lcg;
         }
 
 
+        public bool validationOfInput(double multiplier, double increment, double modulus, double x0)
+        {
+            if ((modulus > 0) && (modulus > multiplier) && (modulus > increment) && (x0 < modulus))
+                return true;
+
+            return false;
+        }
+
 
         public double calculateActualPeriodLenth(double multiplier, double increment, double modulus, double x0)
         {
             double LongestPeriod = -1;
             double k = modulus - 1;
+            bool check1 = true, check2 = true, check3 = true;
 
             if (IsPowerOfTwo(modulus) && (increment != 0))
             {
                 if(IsRelativelyPrime(increment, modulus))
+                {
                     LongestPeriod = modulus;
+                    check1 = false;
+                }
             }
             if (IsPowerOfTwo(modulus) && (increment == 0))
             {
                 if (seedIsOdd(x0) && (multiplier == (5 + 8 * k)))
+                {
                     LongestPeriod = modulus / 4;
+                    check2 = false;
+                }     
             }
             if (IsPrime(modulus) && (increment == 0))
             {
                 if (IsDivisible((Math.Pow(multiplier, k) - 1), modulus))
+                {
                     LongestPeriod = modulus - 1;
+                    check3 = false;
+                }
             }
+            if(check1 || check2 || check3)
+                LongestPeriod = calculatePeriodLenth(multiplier, increment, modulus, x0);
 
             return LongestPeriod;
+        }
+
+
+        public double calculatePeriodLenth(double multiplier, double increment, double modulus, double x0)
+        {
+            double LongestPeriod = 0;
+            double seed_i = 0;
+            for (int i = 1; i <= modulus; i++)
+            {
+                if (i == 1)   
+                    seed_i = ((multiplier * x0) + increment) % modulus;
+                else   
+                    seed_i = ((multiplier * seed_i) + increment) % modulus;
+
+                LongestPeriod++;
+                if (seed_i == x0)
+                    return LongestPeriod;
+            }
+            return 0;
         }
 
 
@@ -76,6 +117,7 @@ namespace RandomNumberGenerator
         }
 
 
+
         public bool IsDivisible(double a, double b)
         {
             double cDouble = a / b;
@@ -84,6 +126,7 @@ namespace RandomNumberGenerator
                 return true;
             return false;
         }
+
 
 
         public bool IsPowerOfTwo(double num)
@@ -100,12 +143,14 @@ namespace RandomNumberGenerator
         }
 
 
+
         public bool seedIsOdd(double seed)
         {
             if (seed % 2 != 0)
                 return true;
             return false;
         }
+
 
 
         public bool IsRelativelyPrime(double increment, double modulus)
@@ -118,6 +163,7 @@ namespace RandomNumberGenerator
             }
             return true;
         }
+
 
 
         public List<double> getPrimeNumbers(double number)

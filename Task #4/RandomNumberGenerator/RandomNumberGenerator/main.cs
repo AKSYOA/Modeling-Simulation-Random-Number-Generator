@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace RandomNumberGenerator
 {
     public partial class main : Form
@@ -31,8 +32,18 @@ namespace RandomNumberGenerator
             double modulus = double.Parse(modulusTextBox.Text);
             double iteration = double.Parse(numberOfIterationsTextBox.Text);
 
-            List<double> randomNumber = fun.LCG_Generator(multiplier, increment, modulus, seed, iteration);
-            double LongestPeriod = fun.calculateActualPeriodLenth(multiplier, increment, modulus, seed);
+            List<double> randomNumber = new List<double>();
+            double LongestPeriod = 0;
+            if (fun.validationOfInput(multiplier, increment, modulus, seed))
+            {
+                randomNumber = fun.LCG_Generator(multiplier, increment, modulus, seed, iteration);
+                LongestPeriod = fun.calculateActualPeriodLenth(multiplier, increment, modulus, seed);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Inputs, Please Enter Valid Number");
+            }
+           
 
             for (int i = 0; i < randomNumber.Count; i++)
             {
