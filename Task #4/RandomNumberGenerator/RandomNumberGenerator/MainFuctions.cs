@@ -9,7 +9,7 @@ namespace RandomNumberGenerator
     class MainFuctions
     {
 
-        public bool validationOfInput(double multiplier, double increment, double modulus, double x0)
+        public bool validateInput(double multiplier, double increment, double modulus, double x0)
         {
             if ((modulus > 0) && (modulus > multiplier) && (modulus > increment) && (x0 < modulus))
                 return true;
@@ -58,7 +58,7 @@ namespace RandomNumberGenerator
             }
             if (IsPowerOfTwo(modulus) && (increment == 0))
             {
-                if (seedIsOdd(x0) && (multiplier == (5 + 8 * k)))
+                if (IsSeedOdd(x0) && (multiplier == (5 + 8 * k)))
                 {
                     LongestPeriod = modulus / 4;
                     check2 = false;
@@ -139,7 +139,7 @@ namespace RandomNumberGenerator
         }
 
 
-        public bool seedIsOdd(double seed)
+        public bool IsSeedOdd(double seed)
         {
             if (seed % 2 != 0)
                 return true;

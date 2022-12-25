@@ -166,7 +166,6 @@
             this.randomNumbersTable.Name = "randomNumbersTable";
             this.randomNumbersTable.Size = new System.Drawing.Size(250, 337);
             this.randomNumbersTable.TabIndex = 12;
-            this.randomNumbersTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.randomNumbersTable_CellContentClick);
             // 
             // randomNumbersColumn
             // 
