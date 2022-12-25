@@ -214,6 +214,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "main";
             this.Text = "Random Number Generator";
+            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.randomNumbersTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

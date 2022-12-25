@@ -23,7 +23,7 @@ namespace RandomNumberGenerator
             List<double> lcg = new List<double>();
             double seed_i = 0;
 
-            for (int i = 1; i < iteration; i++) 
+            for (int i = 1; i <= iteration; i++) 
             {
                 if(i == 1)
                 {
@@ -83,17 +83,19 @@ namespace RandomNumberGenerator
         {
             double LongestPeriod = 0;
             double seed_i = 0;
-            for (int i = 1; i <= modulus; i++)
+            double first_number = ((multiplier * x0) + increment) % modulus;
+            for (int i = 2; i <= modulus; i++)
             {
-                if (i == 1)   
-                    seed_i = ((multiplier * x0) + increment) % modulus;
+                if (i == 2)   
+                    seed_i = ((multiplier * first_number) + increment) % modulus;
                 else   
                     seed_i = ((multiplier * seed_i) + increment) % modulus;
 
                 LongestPeriod++;
-                if (seed_i == x0)
+                if (seed_i == first_number)
                     return LongestPeriod;
             }
+            Console.WriteLine(LongestPeriod);
             return 0;
         }
 
