@@ -95,7 +95,6 @@ namespace RandomNumberGenerator
                 if (seed_i == first_number)
                     return LongestPeriod;
             }
-            Console.WriteLine(LongestPeriod);
             return 0;
         }
 

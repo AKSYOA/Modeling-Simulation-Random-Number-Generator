@@ -62,9 +62,5 @@ namespace RandomNumberGenerator
             
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
