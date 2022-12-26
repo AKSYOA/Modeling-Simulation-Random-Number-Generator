@@ -44,7 +44,6 @@ namespace RandomNumberGenerator
                 {
                     randomNumber = fun.LCG_Generator(multiplier, increment, modulus, seed, iteration);
                     LongestPeriod = fun.calculateActualPeriodLenth(multiplier, increment, modulus, seed);
-                    Console.WriteLine("Longeest" + LongestPeriod);
                 }
                 else
                 {
@@ -62,5 +61,9 @@ namespace RandomNumberGenerator
             
         }
 
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

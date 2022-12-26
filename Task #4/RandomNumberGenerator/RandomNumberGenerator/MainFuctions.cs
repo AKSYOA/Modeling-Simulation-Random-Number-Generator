@@ -101,18 +101,16 @@ namespace RandomNumberGenerator
 
         public bool IsPrime(double modulus)
         {
-            int a = 0;
-            for (int i = 1; i <= modulus; i++)
+            if (modulus <= 1)
+                return false;
+
+            for (int i = 2; i <= Math.Sqrt(modulus); i++)
             {
                 if (modulus % i == 0)
-                {
-                    a++;
-                }
+                    return false;
+
             }
-            if (a == 2) 
-                return true;
-            else 
-                return false;
+            return true;
         }
 
 
